@@ -1,0 +1,70 @@
+<section id="step-3" class="step-box active" style="text-align: center;">
+    <div class="certificate-border">
+        <header class="cert-header">
+            <img src="./image/RE-PLANT12-removebg-preview.png" alt="Logo" style="width: 80px;">
+            <h1 class="protocol-title">CERTIFICADO_DE_CUSTÓDIA_BIOMÉTRICA</h1>
+            <p class="cert-serial">SERIAL_ID: <span id="cert-id">RPL-CORP-99283</span></p>
+        </header>
+
+        <div class="cert-content">
+            <p class="cert-text">Certificamos que a organização</p>
+            <h2 id="cert-razao" class="neon-text">NOME DA EMPRESA LTDA</h2>
+            <p class="cert-text">CNPJ: <span id="cert-cnpj">00.000.000/0001-00</span></p>
+            
+            <div class="cert-stats">
+                <div class="stat-item">
+                    <span class="stat-label">MUDAS_ADQUIRIDAS</span>
+                    <span id="cert-qtd" class="stat-value">500</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">CO2_NEUTRALIZADO</span>
+                    <span id="cert-co2" class="stat-value">12.5 TON/ANO</span>
+                </div>
+            </div>
+
+            <!-- TABELA DE INVENTÁRIO DETALHADO -->
+            <div class="cert-inventory">
+                <h3 class="section-title">INVENTÁRIO_DETALHADO_DE_ATIVOS</h3>
+                <div class="table-wrapper">
+                    <table id="tabela-ativos">
+                        <thead>
+                            <tr>
+                                <th>ID_PLANTA</th>
+                                <th>ESPÉCIE</th>
+                                <th>IDADE</th>
+                                <th>SEQ_MÉDIO</th>
+                                <th>SEMEADOR</th>
+                                <th>LOCALIZAÇÃO_GPS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lista-plantas-corpo">
+                            <!-- Inserido via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="cert-details" style="margin-top: 20px;">
+                <p><strong>DATA_DE_EMISSÃO:</strong> <span id="cert-data">07/05/2026</span></p>
+                <p><strong>STATUS:</strong> <span style="color: var(--neon-green);">ATIVO_E_MONITORADO</span></p>
+            </div>
+        </div>
+
+        <footer class="cert-footer">
+            <div class="qr-placeholder">
+                <img id="qr-final" src="" alt="QR Rastreio">
+                <p>AUDITORIA_DIGITAL</p>
+            </div>
+            <div class="signature">
+                <div class="sig-line"></div>
+                <p>DIRETORIA_REPLANT_PROTOCOL</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="actions-footer">
+        <button class="btn-neon" onclick="window.print()">SALVAR_PDF_CERTIFICADO</button>
+        <button class="btn-neon" style="border-color: var(--cyber-blue); color: var(--cyber-blue);" onclick="window.location.href='index.html'">RETORNAR_AO_PAINEL</button>
+    </div>
+    <script src="./js/certificacao.js"></script>
+</section>
