@@ -198,6 +198,11 @@ body::before{
     width:260px;
     max-width:70vw;
 
+     border-radius:50px; /* arredonda */
+
+    overflow:hidden;
+
+
     position:relative;
     z-index:2;
 
