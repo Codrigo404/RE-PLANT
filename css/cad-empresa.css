@@ -1,0 +1,200 @@
+/* --- VARIÁVEIS E CORES PADRÃO REPLANT --- */
+:root {
+    --neon-green: #39ff14;
+    --cyber-blue: #00f2fe;
+    --dark-bg: #050a15;
+    --hud-border: rgba(0, 242, 254, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--dark-bg);
+    background: radial-gradient(circle, #0a101e 0%, #050a15 100%);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* --- CONTAINER TIPO HUD --- */
+.main-container {
+    width: 95%;
+    max-width: 500px;
+    padding: 35px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--hud-border);
+    backdrop-filter: blur(12px);
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+/* Detalhes de Esquinas Futuristas */
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; width: 30px; height: 30px;
+    border-top: 2px solid var(--cyber-blue);
+    border-left: 2px solid var(--cyber-blue);
+}
+
+.main-container::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; right: -2px; width: 30px; height: 30px;
+    border-bottom: 2px solid var(--neon-green);
+    border-right: 2px solid var(--neon-green);
+}
+
+/* --- HEADER --- */
+.hud-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.protocol-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: var(--cyber-blue);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px var(--cyber-blue);
+}
+
+.header-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyber-blue), transparent);
+    margin-top: 10px;
+}
+
+/* --- FORMULÁRIOS --- */
+.step-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    color: var(--neon-green);
+    border-left: 4px solid var(--neon-green);
+    padding-left: 12px;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.7rem;
+    color: var(--cyber-blue);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+input, select {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 242, 254, 0.4);
+    padding: 14px;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s all ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    background: rgba(57, 255, 20, 0.05);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+}
+
+/* Campos gerados automaticamente */
+input[readonly] {
+    border-color: rgba(0, 242, 254, 0.1);
+    color: #888;
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* --- BOTÃO NEON --- */
+.btn-neon {
+    background: transparent;
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 18px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: 0.4s;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-neon:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 30px var(--neon-green);
+    font-weight: 700;
+}
+
+/* --- QR CODE CONTAINER --- */
+#qrcode-container {
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+    transition: transform 0.3s ease;
+}
+
+#qrcode-container:hover {
+    transform: scale(1.02);
+}
+
+.warning-text {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.6;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}
+
+/* --- ANIMAÇÕES --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 600px) {
+    .main-container {
+        padding: 20px;
+        border: none;
+        background: transparent;
+    }
+    
+    input, select {
+        padding: 12px;
+    }
+
+    .protocol-title {
+        font-size: 0.9rem;
+    }
+}

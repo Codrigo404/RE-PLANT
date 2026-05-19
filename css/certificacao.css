@@ -1,0 +1,41 @@
+.cert-inventory {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.table-wrapper {
+    max-height: 250px; /* Scroll para não ficar gigante */
+    overflow-y: auto;
+    border: 1px solid var(--hud-border);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+#tabela-ativos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+}
+
+#tabela-ativos th {
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--cyber-blue);
+    padding: 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+}
+
+#tabela-ativos td {
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Scrollbar Estilo Neon */
+.table-wrapper::-webkit-scrollbar { width: 4px; }
+.table-wrapper::-webkit-scrollbar-track { background: transparent; }
+.table-wrapper::-webkit-scrollbar-thumb { background: var(--neon-green); }
+
+@media print {
+    .table-wrapper { max-height: none; overflow: visible; }
+    .certificate-border { border: 2px solid #000; background: #fff; color: #000; }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPLANT | Sower Protocol</title>
+    
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="./css/semeador.css">
+    
+    <!-- Fontes Futuristas -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- HEADER HUD -->
+        <header class="hud-header">
+            <div class="header-line"></div>
+            <h1 class="protocol-title">SOWER_PROTOCOL_INIT</h1>
+        </header>
+
+        <!-- PASSO 1: CADASTRO E LOCALIZAÇÃO -->
+        <section id="step-1" class="step-box active">
+            <h2 class="section-title">IDENTIFICAÇÃO_DO_SEMEADOR</h2>
+            
+            <div class="form-group">
+                <label>NOME_COMPLETO</label>
+                <input type="text" id="nome" placeholder="EX: CAIO SILVA">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>DOCUMENTO_CPF</label>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14">
+                </div>
+                <div class="form-group">
+                    <label>TELEFONE</label>
+                    <input type="tel" id="telefone" placeholder="(00) 00000-0000" maxlength="15">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>LOCALIZAÇÃO_CEP (BUSCA_AUTO)</label>
+                <input type="text" id="cep" placeholder="00000-000" maxlength="9">
+            </div>
+
+            <div class="form-group">
+                <label>LOGRADOURO</label>
+                <input type="text" id="logradouro" placeholder="AGUARDANDO_CEP..." readonly>
+            </div>
+
+            <div class="form-group">
+                <label>REFERENCIA</label>
+                <input type="text" id="referencia" placeholder="Casa, Prédio, etc.  " >
+            </div>
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>BAIRRO</label>
+                    <input type="text" id="bairro" readonly>
+                </div>
+                <div class="form-group">
+                    <label>CIDADE/UF</label>
+                    <input type="text" id="cidade" readonly>
+                </div>
+            </div>
+
+                <div class="form-group">
+                    <label>Plantas (Espécies)</label>
+                    <select id="especie_planta" class="input-cyber">
+                    <option value="AROEIRA SALSA">AROEIRA SALSA</option>
+                    <option value="PITANGA">PITANGA</option>
+                    <option value="JASMIN MANGA">JASMIN MANGA</option>
+                     </select>
+            </div>
+            
+            <button class="btn-neon" onclick="cadastrarPlanta()">CADASTRAR</button>
+            <button class="btn-neon" style="border-color: var(--cyber-blue); color: var(--cyber-blue);" onclick="window.location.href='index.html'">VOLTAR</button>
+        </section>
+
+        <!-- PASSO 2: ID EXCLUSIVO -->
+        <section id="step-2" class="step-box">
+            <h2 class="section-title">ID_DE_RASTREAMENTO_GERADO</h2>
+            <div class="id-display">
+                <span id="unique-id">RPL-0000-0000</span>
+            </div>
+            <p class="warning-text">
+                O PROTOCOLO ACIMA É ÚNICO.<br>
+                ESTE ID SERÁ VINCULADO À BIOMETRIA DA PLANTA.
+            </p>
+            <button class="btn-neon" onclick="startCamera()">INICIAR_SCANNER_VISUAL</button>
+        </section>
+
+        <!-- PASSO 3: CÂMERA E REGISTRO -->
+        <section id="step-3" class="step-box">
+            <h2 class="section-title">REGISTRO_DE_BIOMASSA</h2>
+            <div class="camera-container">
+                <video id="video" autoplay playsinline></video>
+                <div class="camera-overlay">
+                    <div class="scan-line"></div>
+                    <div class="id-watermark" id="watermark-id">ID: RPL-WAIT</div>
+                </div>
+            </div>
+            <!-- Canvas invisível para processar a foto -->
+            <canvas id="canvas" style="display:none;"></canvas>
+            
+            <button class="btn-neon" onclick="takePhoto()">CONFIRMAR_PLANTIO</button>
+            <p class="warning-text" style="margin-top: 10px;">POSICIONE A MUDA NO CENTRO DO VISOR</p>
+        </section>
+    </div>
+
+    <!-- Scripts Externos -->
+   
+</body>
+     <script src="./js/semeador.js"></script>
+      <script src="./js/apis.js"></script>
+</html>
