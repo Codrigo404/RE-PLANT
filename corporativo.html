@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REPLANT | ESG Corporate Access</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/corporativo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body class="cyber-bg">
+
+    <div class="corporate-container">
+        
+        <header class="corp-header">
+            <span class="protocol-tag">// RE-PLANT_B2B_PROTOCOL</span>
+            <h1>PORTAL DE ATIVOS ESG & MITIGAÇÃO</h1>
+            <p>Dados ambientais auditáveis e rastreáveis para conformidade regulatória e mercados de carbono.</p>
+        </header>
+
+       <div class="corp-solutions-grid">
+            
+            <div class="corp-card border-green">
+                <div class="corp-card-header">
+                    <span class="icon-hud">📊</span>
+                    <h2>01. CRÉDITOS DE CARBONO</h2>
+                </div>
+                <p class="corp-card-desc">
+                    Adquira créditos de carbono verificados e gerados por agricultores familiares através do sequestro ativo de CO₂.
+                </p>
+                <ul class="data-features">
+                    <li><span class="check">✔</span> Métricas de captura via IoT/Sensores</li>
+                    <li><span class="check">✔</span> Relatórios de biomassa em tempo real</li>
+                    <li><span class="check">✔</span> Histórico imutável de manutenção do ativo</li>
+                </ul>
+            </div>
+
+            <div class="corp-card border-blue">
+                <div class="corp-card-header">
+                    <span class="icon-hud">📐</span>
+                    <h2>02. SUPRESSÃO DE VEGETAÇÃO</h2>
+                </div>
+                <p class="corp-card-desc">
+                    Atenda termos de compromisso ambiental e condicionantes de licenças com ativos para mitigação imediata.
+                </p>
+                <ul class="data-features">
+                    <li><span class="check">✔</span> Geolocalização exata e polígonos das propriedades</li>
+                    <li><span class="check">✔</span> Inventário florístico digitalizado</li>
+                    <li><span class="check">✔</span> Rastreabilidade total da muda ao estágio adulto</li>
+                </ul>
+            </div>
+
+        </div>
+
+        </div>
+
+        <section class="demand-section cyber-panel">
+            <h3><i class="fa-solid fa-calculator"></i> SIMULADOR DE DEMANDA AMBIENTAL</h3>
+            <p class="panel-subtitle">Insira as necessidades da sua empresa para mapear os dados e ativos disponíveis em nossa rede.</p>
+
+            <form id="form-demanda-empresa">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Razão Social / Empresa</label>
+                        <input type="text" class="input-cyber" placeholder="Ex: Logística S/A" required>
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail Corporativo</label>
+                        <input type="email" class="input-cyber" placeholder="compliance@empresa.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Foco Principal da Demanda</label>
+                        <select id="foco_demanda" class="input-cyber-select">
+                            <option value="carbono">Comprar Crédito de Carbono (Neutralização/NetZero)</option>
+                            <option value="supressao">Mitigação de Supressão de Vegetação (Compensação Regulatória)</option>
+                            <option value="ambos">Ambos (Carbono + Mitigação Regulada)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Volume Estimado (Toneladas de CO₂ ou Hectares a Compensar)</label>
+                        <input type="text" class="input-cyber" placeholder="Ex: 500 tCO2e / 5 ha" required>
+                    </div>
+                </div>
+
+                <div class="blockchain-notice">
+                    <p>🛡️ <strong>Rastreabilidade RE-PLANT:</strong> Todos os ativos selecionados para a sua demanda possuem ID exclusivo, documentação de posse da terra dos produtores urbanos e validação geoespacial imutável.</p>
+                </div>
+
+                <button type="submit" class="btn-cyber-corp">Solicitar Dados de Rastreabilidade e Cotas</button>
+            </form>
+        </section>
+
+    </div>
+
+</body>
+</html>

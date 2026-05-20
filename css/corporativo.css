@@ -1,0 +1,74 @@
+/* ESTILO GLOBAL PARA A TELA CORPORATIVA */
+.cyber-bg {
+    background-color: #000000; /* Fundo preto absoluto */
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ESTILIZAÇÃO DO PAINEL DO SIMULADOR (CYBER-PANEL) */
+.cyber-panel {
+    background: #050b14;
+    border: 1px solid #1e293b;
+    padding: 35px;
+    border-radius: 8px;
+    margin-top: 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cyber-panel h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff41; /* Verde Neon */
+    margin-top: 0;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.panel-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* COMPONENTES DE FORMULÁRIO B2B */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+/* INPUT COMPATÍVEL COM O DESIGN DA MÍDIA */
+.input-cyber {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #000000;
+    border: 1px solid #334155;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-cyber:focus {
+    border-color: #00ff41;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+/* Ajuste rápido para placeholders */
+.input-cyber::placeholder {
+    color: #475569;
+}

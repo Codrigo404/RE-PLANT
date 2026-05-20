@@ -864,3 +864,251 @@ body::before{
         line-height:1.7;
     }
 }
+
+/* ESTILO DO BOTÃO CYBER-GREEN RE-PLANT */
+.btn-cyber-register {
+  /* Layout e Tipografia */
+  padding: 3px 3px;
+  background-color: #000000; /* Fundo preto absoluto */
+  color: #00ff41; /* Verde neon puro */
+  font-family: 'Space Grotesk', sans-serif; /* Ou sua fonte tech */
+  font-size: 1.1rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid #00ff41; /* Contorno verde neon */
+  border-radius: 4px; /* Cantos levemente retos, estilo chip */
+  
+  /* Efeito de Brilho (Neon Glow) */
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5), /* Brilho suave externo */
+              0 0 20px rgba(0, 255, 65, 0.3), /* Brilho médio externo */
+              inset 0 0 5px rgba(0, 255, 65, 0.2); /* Brilho suave interno */
+  
+  /* Animação e Interação */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* EFEITO AO PASSAR O MOUSE (HOVER - Modelo 2 da imagem) */
+.btn-cyber-register:hover {
+  background-color: #00ff41; /* O botão "preenche" de verde */
+  color: #000000; /* O texto fica preto */
+  
+  /* Brilho Intenso de Energia */
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.8), /* Brilho forte */
+              0 0 45px rgba(0, 255, 65, 0.6); /* Brilho máximo */
+}
+
+/* CONTAINER COMPORTA O BOTÃO NO TOPO DIREITO */
+.top-nav-cyber {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Empurra o botão totalmente para a direita */
+    padding: 20px 40px; /* Cria um espaçamento interno para ele não grudar nas bordas da tela */
+    box-sizing: border-box;
+}
+
+/* CONTAINER DO TOPO - ADAPTADO PARA MOBILE E DESKTOP */
+.top-nav-cyber {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* No celular ele fica centralizado por padrão para dar equilíbrio */
+    padding: 20px 20px;
+    box-sizing: border-box;
+}
+
+/* O BOTÃO AJUSTADO COM FONTE FLUIDA */
+.btn-cyber-register {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #00ff41;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem; /* Diminuímos um pouco para telas menores */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #00ff41;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: auto; /* Garante que ele não estique no celular */
+}
+
+/* 📱 MEDIA QUERY: REGRAS EXCLUSIVAS PARA MONITORES / COMPUTADORES (Telas maiores que 768px) */
+@media (min-width: 768px) {
+    .top-nav-cyber {
+        justify-content: flex-end; /* No computador, ele volta a ir para a extrema direita */
+        padding: 25px 40px;
+    }
+    .btn-cyber-register {
+        font-size: 0.95rem; /* No PC a letra pode ser um pouco maior */
+        padding: 12px 26px;
+    }
+}
+
+/* FUNDO ESCURO QUE ATRAVESSA A TELA TODA */
+.modal-cyber-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* CAIXA CENTRAL DO MODAL */
+.modal-cyber-content {
+    background: #020617; /* Dark escuro igual ao ecossistema */
+    border: 2px solid #00ff41;
+    padding: 30px 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 950px;
+    max-height: 90vh;
+    overflow-y: auto; /* Se o celular for muito pequeno, cria rolagem interna para não travar a tela */
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+}
+
+.modal-title {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ff41;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.modal-subtitle {
+    font-family: 'Rajdhani', sans-serif;
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+/* CARDS DE SELEÇÃO - SE ADAPTAM DE UMA COLUNA (CELULAR) PARA TRÊS (PC) */
+.triagem-cards {
+    display: grid;
+    grid-template-columns: 1fr; /* Padrão Mobile: um embaixo do outro */
+    gap: 20px;
+}
+
+.card-opcao {
+    background: #0b1329;
+    border: 1px solid #1e293b;
+    padding: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-align: left;
+}
+
+.card-opcao:hover {
+    border-color: #00ff41;
+    background: #011c06;
+    transform: translateY(-2px);
+}
+
+.card-icon { font-size: 2rem; margin-bottom: 10px; }
+.card-opcao h3 { font-family: 'Orbitron', sans-serif; color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
+.card-opcao p { color: #94a3b8; font-size: 0.9rem; line-height: 1.4; margin-bottom: 15px; }
+.card-link { font-family: 'Rajdhani', sans-serif; color: #00ff41; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; }
+
+.btn-close-modal {
+    position: absolute; top: 15px; right: 20px;
+    background: none; border: none;
+    color: #00ff41; font-size: 1.8rem; cursor: pointer;
+}
+
+/* 📱 RESPONSIVIDADE PARA TELAS MAIORES (COMPUTADOR) */
+@media (min-width: 768px) {
+    .modal-cyber-content { padding: 40px; }
+    .modal-title { font-size: 2rem; }
+    .triagem-cards {
+        grid-template-columns: repeat(3, 1fr); /* No PC fica lado a lado em 3 colunas */
+    }
+}
+
+
+/* CONFIGURAÇÃO FORÇADA DO GRID B2B */
+.corp-solutions-grid {
+    display: flex;
+    flex-direction: column; /* Padrão para celular (um embaixo do outro) */
+    gap: 25px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+/* ESTILO DOS CARDS QUE ESTAVAM QUEBRADOS */
+.corp-card {
+    background-color: #050b14 !important; /* Força o fundo escuro dentro do card */
+    padding: 25px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* BORDAS EM NEON EXTENSION */
+.border-green { 
+    border: 1px solid #00ff41 !important; 
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.15); 
+}
+.border-blue { 
+    border: 1px solid #00d2ff !important; 
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.15); 
+}
+
+/* REGRAS INTERNAS DOS CARDS */
+.corp-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+.icon-hud {
+    font-size: 1.4rem;
+}
+.corp-card-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+}
+.corp-card-desc {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.data-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.data-features li {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.border-green .check { color: #00ff41; font-weight: bold; }
+.border-blue .check { color: #00d2ff; font-weight: bold; }
+
+/* 🖥️ SE FOR EXIBIDO EM TELA GRANDE (PC), ADICIONA LADO A LADO */
+@media (min-width: 768px) {
+    .corp-solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Divide em duas colunas perfeitas */
+        gap: 30px;
+    }
+}

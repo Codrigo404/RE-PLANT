@@ -40,3 +40,24 @@
             }, 50); // Ajuste aqui para ser mais rápido ou lento
         });
   
+        // Função para abrir a janela de triagem
+function abrirTriagem() {
+    document.getElementById('modal-triagem').style.display = 'flex';
+}
+
+// Função para fechar a janela se a pessoa clicar no "X"
+function fecharTriagem() {
+    document.getElementById('modal-triagem').style.display = 'none';
+}
+
+// Função que manda para a página de cadastro certa com base no perfil escolhido
+function selecionarPerfil(perfil) {
+    fecharTriagem();
+    if (perfil === 'produtor') {
+        window.location.href = './semeador.html'; // Vai para a página do produtor/sítio
+    } else if (perfil === 'apoiador') {
+        window.location.href = './invest-verde.html'; // Vai para a página de cotas/apoiador
+    } else if (perfil === 'empresa') {
+        window.location.href = './corporativo.html'; // Vai para a página de soluções ESG
+    }
+}

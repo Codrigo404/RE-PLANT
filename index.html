@@ -73,9 +73,13 @@
     </div>
 
 </div>
-
-       
+ 
        <section id="select-screen">
+     <div class="top-nav-cyber">   
+        <button class="btn-cyber-register" onclick="abrirTriagem()">
+                    Cadastrar-se
+                </button>
+     </div>
 
     <h2 class="hud-title">
         ÁRVORES DIGITAIS, FRUTOS REAIS.
@@ -106,6 +110,8 @@
             <span>
                 Direto da Origem
             </span>
+
+        
 
         </button>
 
@@ -237,6 +243,37 @@
     </p>
 
 </footer>
+<div id="modal-triagem" class="modal-cyber-overlay" style="display: none;">
+    <div class="modal-cyber-content">
+        <button class="btn-close-modal" onclick="fecharTriagem()">&times;</button>
+        
+        <h2 class="modal-title">COMO DESEJA ATUAR NO PROTOCOLO?</h2>
+        <p class="modal-subtitle">// SELECIONE SEU PERFIL PARA DIRECIONAMENTO DE DADOS</p>
+        
+        <div class="triagem-cards">
+            <div class="card-opcao" onclick="selecionarPerfil('produtor')">
+                <div class="card-icon">🚜</div>
+                <h3>PRODUTOR RURAL / SÍTIO</h3>
+                <p>Quero cadastrar minha propriedade, gerar IDs para minhas árvores e monetizar a entressafra.</p>
+                <span class="card-link">INICIAR_PROTOCOLO</span>
+            </div>
+
+            <div class="card-opcao" onclick="selecionarPerfil('apoiador')">
+                <div class="card-icon">🌳</div>
+                <h3>APOIADOR JORNADA VERDE</h3>
+                <p>Quero apoiar árvores reais, acompanhar dados ambientais e receber produtos direto da origem.</p>
+                <span class="card-link">ADOTAR_COTA</span>
+            </div>
+
+            <div class="card-opcao" onclick="selecionarPerfil('empresa')">
+                <div class="card-icon">🌍</div>
+                <h3>EMPRESA / SOLUÇÕES AMBIENTAIS</h3>
+                <p>Buscamos dados reais de carbono, rastreabilidade e ativos para compensação ambiental regulatória e supressão de vegetação.</p>
+                <span class="card-link">ESG_CONNECT</span>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
     <script src="js/index.js"></script>
     <script src="js/apis.js"></script>
