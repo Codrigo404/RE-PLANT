@@ -901,6 +901,43 @@ body::before{
               0 0 45px rgba(0, 255, 65, 0.6); /* Brilho máximo */
 }
 
+
+
+.btn-cyber-login {
+  /* Layout e Tipografia */
+  padding: 3px 3px;
+  background-color: #000000; /* Fundo preto absoluto */
+  color: #00ff41; /* Verde neon puro */
+  font-family: 'Space Grotesk', sans-serif; /* Ou sua fonte tech */
+  font-size: 1.1rem;
+  font-weight: 100;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 2px solid #00ff41; /* Contorno verde neon */
+  border-radius: 4px; /* Cantos levemente retos, estilo chip */
+  
+  /* Efeito de Brilho (Neon Glow) */
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5), /* Brilho suave externo */
+              0 0 20px rgba(0, 255, 65, 0.3), /* Brilho médio externo */
+              inset 0 0 5px rgba(0, 255, 65, 0.2); /* Brilho suave interno */
+  
+  /* Animação e Interação */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* EFEITO AO PASSAR O MOUSE (HOVER - Modelo 2 da imagem) */
+.btn-cyber-login:hover {
+  background-color: #00ff41; /* O botão "preenche" de verde */
+  color: #000000; /* O texto fica preto */
+  
+  /* Brilho Intenso de Energia */
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.8), /* Brilho forte */
+              0 0 45px rgba(0, 255, 65, 0.6); /* Brilho máximo */
+}
+
 /* CONTAINER COMPORTA O BOTÃO NO TOPO DIREITO */
 .top-nav-cyber {
     width: 100%;
@@ -937,6 +974,24 @@ body::before{
     width: auto; /* Garante que ele não estique no celular */
 }
 
+.btn-cyber-login {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #00ff41;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem; /* Diminuímos um pouco para telas menores */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #00ff41;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: auto; /* Garante que ele não estique no celular */
+}
+
+
 /* 📱 MEDIA QUERY: REGRAS EXCLUSIVAS PARA MONITORES / COMPUTADORES (Telas maiores que 768px) */
 @media (min-width: 768px) {
     .top-nav-cyber {
@@ -944,6 +999,10 @@ body::before{
         padding: 25px 40px;
     }
     .btn-cyber-register {
+        font-size: 0.95rem; /* No PC a letra pode ser um pouco maior */
+        padding: 12px 26px;
+    }
+    .btn-cyber-login {
         font-size: 0.95rem; /* No PC a letra pode ser um pouco maior */
         padding: 12px 26px;
     }

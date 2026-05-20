@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REPLANT | Sower Protocol</title>
     
-    <!-- CSS Externo -->
     <link rel="stylesheet" href="./css/semeador.css">
     
-    <!-- Fontes Futuristas -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="main-container">
-        <!-- HEADER HUD -->
         <header class="hud-header">
             <div class="header-line"></div>
             <h1 class="protocol-title">SOWER_PROTOCOL_INIT</h1>
         </header>
 
-        <!-- PASSO 1: CADASTRO E LOCALIZAÇÃO -->
         <section id="step-1" class="step-box active">
             <h2 class="section-title">IDENTIFICAÇÃO_DO_SEMEADOR</h2>
             
@@ -52,9 +48,8 @@
 
             <div class="form-group">
                 <label>REFERENCIA</label>
-                <input type="text" id="referencia" placeholder="Casa, Prédio, etc.  " >
+                <input type="text" id="referencia" placeholder="Casa, Prédio, etc.  ">
             </div>
-
 
             <div class="form-row">
                 <div class="form-group">
@@ -67,21 +62,26 @@
                 </div>
             </div>
 
+            <div class="form-row">
                 <div class="form-group">
-    <label for="especie_planta">Planta (Espécie)</label>
-    <input 
-        type="text" 
-        id="especie_planta" 
-        class="input-cyber" 
-        placeholder="Digite a espécie da árvore que você possui..."
-    >
-</div>
+                    <label>Login</label>
+                    <input type="text" id="login_user" placeholder="EX: CAIO123">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" id="senha_user" placeholder="••••••••">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="email_user" placeholder="exemplo@provedor.com">
+            </div>
             
             <button class="btn-neon" onclick="cadastrarPlanta()">CADASTRAR</button>
             <button class="btn-neon" style="border-color: var(--cyber-blue); color: var(--cyber-blue);" onclick="window.location.href='index.html'">VOLTAR</button>
         </section>
 
-        <!-- PASSO 2: ID EXCLUSIVO -->
         <section id="step-2" class="step-box">
             <h2 class="section-title">ID_DE_RASTREAMENTO_GERADO</h2>
             <div class="id-display">
@@ -94,7 +94,6 @@
             <button class="btn-neon" onclick="startCamera()">INICIAR_SCANNER_VISUAL</button>
         </section>
 
-        <!-- PASSO 3: CÂMERA E REGISTRO -->
         <section id="step-3" class="step-box">
             <h2 class="section-title">REGISTRO_DE_BIOMASSA</h2>
             <div class="camera-container">
@@ -104,7 +103,6 @@
                     <div class="id-watermark" id="watermark-id">ID: RPL-WAIT</div>
                 </div>
             </div>
-            <!-- Canvas invisível para processar a foto -->
             <canvas id="canvas" style="display:none;"></canvas>
             
             <button class="btn-neon" onclick="takePhoto()">CONFIRMAR_PLANTIO</button>
@@ -112,9 +110,8 @@
         </section>
     </div>
 
-    <!-- Scripts Externos -->
-   
 </body>
-     <script src="./js/semeador.js"></script>
-      <script src="./js/apis.js"></script>
+<script src="./js/cadastro.js"></script>
+<script src="./js/semeador.js"></script>
+<script src="./js/apis.js"></script>
 </html>
