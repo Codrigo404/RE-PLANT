@@ -19,7 +19,7 @@ function cadastrarPlanta() {
     return;
   }
 
-  fetch("COLE_SUA_URL_DO_GOOGLE_AQUI", {
+  fetch("https://script.google.com/macros/s/AKfycbyC7nG5j9YqFXQAlPYwuguBi0m_gyzbkpE_F3Ev7e1gqACeUKXWOp1xoi3i6tlfDA_7XA/exec", {
     method: "POST",
     body: JSON.stringify(dados)
   })

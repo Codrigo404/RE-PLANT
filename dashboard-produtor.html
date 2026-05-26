@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Bento - Cadastro de Árvore</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        /* Estilo Base do Bento UI */
+        body { background-color: #121212; color: #fff; font-family: sans-serif; padding: 20px; }
+        
+        .bento-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Duas colunas, a primeira maior */
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .bento-box {
+            background-color: #1e1e1e;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid #333;
+        }
+
+        /* Estilos do Formulário */
+        input, select {
+            width: 100%; padding: 10px; margin: 8px 0 20px;
+            background: #2a2a2a; border: 1px solid #444; color: #fff;
+            border-radius: 8px; box-sizing: border-box;
+        }
+
+        button {
+            background-color: #00ff88; color: #000; font-weight: bold;
+            border: none; padding: 12px 20px; border-radius: 8px;
+            cursor: pointer; width: 100%; transition: 0.3s;
+        }
+        button:hover { background-color: #00cc6a; }
+
+        /* Estilo do Card do QR Code */
+        #qr-box { text-align: center; }
+        #qrcode-img { margin: 20px auto; background: white; padding: 10px; border-radius: 10px; display: inline-block; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center; color: #00ff88;">Painel de Rastreabilidade</h2>
+
+    <div class="bento-container">
+        
+        <div class="bento-box">
+            <h3>Registro de Novo Indivíduo</h3>
+            <form id="form-arvore">
+                <label>Espécie (Popular):</label>
+                <input type="text" id="especie" placeholder="Ex: Ipê Amarelo" required>
+
+                <label>Data do Plantio:</label>
+                <input type="date" id="data-plantio" required>
+
+                <label>Coordenadas (Lat / Lng):</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="lat" placeholder="Latitude">
+                    <input type="text" id="lng" placeholder="Longitude">
+                </div>
+
+                <label>Altura da Muda (cm):</label>
+                <input type="number" id="altura" placeholder="Ex: 30" required>
+
+                <button type="submit">Gerar Registro e QR Code</button>
+            </form>
+        </div>
+
+        <div class="bento-box" id="qr-box">
+            <h3>Plaqueta de Identificação</h3>
+            <p style="color: #888; font-size: 14px;">Preencha os dados para gerar a tag.</p>
+            
+            <div id="resultado-tag" class="hidden">
+                <p><strong>ID:</strong> <span id="id-display" style="color: #00ff88;"></span></p>
+                <div id="qrcode-img"></div>
+                <button onclick="window.print()" style="margin-top: 15px; background: #333; color: white;">Imprimir Plaqueta</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('form-arvore').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede a página de recarregar
+
+            // 1. Gera um ID Único Aleatório para a árvore
+            const idUnico = 'REP-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+
+            // Mostra a área do QR Code
+            document.getElementById('resultado-tag').classList.remove('hidden');
+            document.getElementById('id-display').innerText = idUnico;
+
+            // Limpa o QR code anterior (se houver)
+            document.getElementById('qrcode-img').innerHTML = "";
+
+            // 2. Cria o QR Code usando a biblioteca
+            new QRCode(document.getElementById("qrcode-img"), {
+                text: idUnico, // O que o celular vai ler quando escanear
+                width: 150,
+                height: 150,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+    </script>
+</body>
+</html>
