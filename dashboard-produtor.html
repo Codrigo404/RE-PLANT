@@ -3,113 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Bento - Cadastro de Árvore</title>
+    <title>Re-plant Protocol - Cadastro Bento</title>
+    
+    <!-- CONEXÃO DE FONTES CYBER-ECO (Essencial para Orbitron e Rajdhani funcionarem) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link para o CSS Externo -->
+    <link rel="stylesheet" href="./css/dashboard-produtor.css">
+    
+    <!-- Biblioteca do QR Code (CDN) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <style>
-        /* Estilo Base do Bento UI */
-        body { background-color: #121212; color: #fff; font-family: sans-serif; padding: 20px; }
-        
-        .bento-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* Duas colunas, a primeira maior */
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .bento-box {
-            background-color: #1e1e1e;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 1px solid #333;
-        }
-
-        /* Estilos do Formulário */
-        input, select {
-            width: 100%; padding: 10px; margin: 8px 0 20px;
-            background: #2a2a2a; border: 1px solid #444; color: #fff;
-            border-radius: 8px; box-sizing: border-box;
-        }
-
-        button {
-            background-color: #00ff88; color: #000; font-weight: bold;
-            border: none; padding: 12px 20px; border-radius: 8px;
-            cursor: pointer; width: 100%; transition: 0.3s;
-        }
-        button:hover { background-color: #00cc6a; }
-
-        /* Estilo do Card do QR Code */
-        #qr-box { text-align: center; }
-        #qrcode-img { margin: 20px auto; background: white; padding: 10px; border-radius: 10px; display: inline-block; }
-        .hidden { display: none; }
-    </style>
 </head>
 <body>
 
-    <h2 style="text-align: center; color: #00ff88;">Painel de Rastreabilidade</h2>
-
-    <div class="bento-container">
+    <div class="main-container">
         
-        <div class="bento-box">
-            <h3>Registro de Novo Indivíduo</h3>
-            <form id="form-arvore">
-                <label>Espécie (Popular):</label>
-                <input type="text" id="especie" placeholder="Ex: Ipê Amarelo" required>
+        <!-- HEADER ALINHADO COM O CSS MESTRE (.hud-title e .protocol-description) -->
+        <header style="text-align: center; padding: 40px 20px 10px;">
+            <h2 class="hud-title">RE-PLANT PROTOCOL</h2>
+            <p class="protocol-description" style="margin: 0 auto;">
+                Conectando a sabedoria da comunidade à tecnologia ambiental
+            </p>
+        </header>
 
-                <label>Data do Plantio:</label>
-                <input type="date" id="data-plantio" required>
-
-                <label>Coordenadas (Lat / Lng):</label>
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="lat" placeholder="Latitude">
-                    <input type="text" id="lng" placeholder="Longitude">
-                </div>
-
-                <label>Altura da Muda (cm):</label>
-                <input type="number" id="altura" placeholder="Ex: 30" required>
-
-                <button type="submit">Gerar Registro e QR Code</button>
-            </form>
-        </div>
-
-        <div class="bento-box" id="qr-box">
-            <h3>Plaqueta de Identificação</h3>
-            <p style="color: #888; font-size: 14px;">Preencha os dados para gerar a tag.</p>
+        <!-- GRID BENTO CONFIGURADO -->
+        <div class="bento-container">
             
-            <div id="resultado-tag" class="hidden">
-                <p><strong>ID:</strong> <span id="id-display" style="color: #00ff88;"></span></p>
-                <div id="qrcode-img"></div>
-                <button onclick="window.print()" style="margin-top: 15px; background: #333; color: white;">Imprimir Plaqueta</button>
-            </div>
-        </div>
+            <!-- Bloco Principal: Formulário Bento Inteligente -->
+            <div class="bento-box">
+                <h3>Registro de Espécime</h3>
+                <form id="form-arvore">
+                    
+                    <label for="especie">O que foi plantado / O que tem aqui?</label>
+                    <input type="text" id="especie" placeholder="Ex: Caquizeiro, Ipê Amarelo, Mangueira" required>
 
+                    <!-- Módulo de Geolocalização Simples -->
+                    <label>Onde ela está instalada?</label>
+                    <button type="button" class="btn-gps" id="btn-capturar-gps">📍 Capturar Localização Atual (GPS)</button>
+                    
+                    <!-- Container tratado com inline-style flex para manter o fallback de estrutura -->
+                    <div style="display: flex; gap: 10px; width: 100%;">
+                        <input type="text" id="lat" placeholder="Latitude" required readonly>
+                        <input type="text" id="lng" placeholder="Longitude" required readonly>
+                    </div>
+
+                    <!-- Módulo de Idade Adaptado para Leigos -->
+                    <div class="toggle-container">
+                        <input type="checkbox" id="nao-sei-data">
+                        <label style="margin: 0; cursor: pointer;" for="nao-sei-data">Não sei a data exata de plantio</label>
+                    </div>
+
+                    <div id="container-data">
+                        <label for="data-plantio">Data aproximada do Plantio:</label>
+                        <input type="date" id="data-plantio">
+                    </div>
+
+                    <div id="container-estagio" class="hidden">
+                        <label for="estagio-vida">Estágio atual de crescimento:</label>
+                        <select id="estagio-vida">
+                            <option value="🌱 Muda (Sapling)">🌱 Muda (Pequena/Recém-plantada)</option>
+                            <option value="🌿 Jovem (Juvenile)">🌿 Árvore Jovem (Em crescimento)</option>
+                            <option value="🌳 Adulta (Mature)" selected>🌳 Árvore Adulta (Já dá sombra/frutos - Ex: Caqui)</option>
+                            <option value="🍂 Anciã (Senescent)">🍂 Árvore Anciã (Muito antiga)</option>
+                        </select>
+                    </div>
+
+                    <!-- Seletor de Tronco em analogias visuais -->
+                    <label for="tamanho-tronco">Espessura aproximada do tronco:</label>
+                    <select id="tamanho-tronco" required>
+                        <option value="📱 Espessura de um Celular (Muda)">📱 Fino como um celular (Muda)</option>
+                        <option value="☕ Espessura de uma Caneca">☕ Como uma caneca de café (Jovem)</option>
+                        <option value="🪣 Espessura de um Balde">🪣 Grosso como um balde (Adulta)</option>
+                        <option value="🚗 Mais largo que um Pneu">🚗 Muito grosso, tamanho de um pneu (Anciã)</option>
+                    </select>
+
+                    <button type="submit">Validar Ativo & Criar Plaqueta</button>
+                </form>
+            </div>
+
+            <!-- Bloco Lateral Bento: Saída do QR Code e Identidade Visual -->
+            <div class="bento-box" id="qr-box">
+                <div>
+                    <h3>Plaqueta Digital Rastreável</h3>
+                    <p id="placeholder-text" style="color: #8892b0; font-size: 14px; margin-top: 40px; font-family: 'Rajdhani', sans-serif;">
+                        Insira as informações do indivíduo botânico ao lado para gerar o lastro digital criptografado.
+                    </p>
+                </div>
+                
+                <div id="resultado-tag" class="hidden" style="width: 100%;">
+                    <div class="tag-info">
+                        <p><strong>Registro ID:</strong> <span id="id-display" style="color: #00ff88; font-family: monospace;"></span></p>
+                        <p><strong>Planta:</strong> <span id="especie-display"></span></p>
+                        <p><strong>Estágio:</strong> <span id="tempo-display"></span></p>
+                        <p><strong>Tronco:</strong> <span id="tronco-display"></span></p>
+                        <p style="font-size: 11px; color:#888;"><strong>Local:</strong> <span id="geo-display"></span></p>
+                    </div>
+
+                    <div id="qrcode-img"></div>
+                    
+                    <p style="font-size: 12px; color: #00ff88; margin: 10px 0; font-family: 'Orbitron', sans-serif; letter-spacing: 1px;">✓ Ativo Tokenizado no Re-plant Protocol</p>
+                    <button id="btn-imprimir">🖨️ Imprimir Plaqueta Física</button>
+                </div>
+                <div style="font-size: 11px; color: #444; margin-top: 20px; font-family: 'Orbitron', sans-serif; letter-spacing: 1px;">Powered by DreamTech - EvoLab</div>
+            </div>
+
+        </div>
     </div>
 
-    <script>
-        document.getElementById('form-arvore').addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede a página de recarregar
-
-            // 1. Gera um ID Único Aleatório para a árvore
-            const idUnico = 'REP-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-
-            // Mostra a área do QR Code
-            document.getElementById('resultado-tag').classList.remove('hidden');
-            document.getElementById('id-display').innerText = idUnico;
-
-            // Limpa o QR code anterior (se houver)
-            document.getElementById('qrcode-img').innerHTML = "";
-
-            // 2. Cria o QR Code usando a biblioteca
-            new QRCode(document.getElementById("qrcode-img"), {
-                text: idUnico, // O que o celular vai ler quando escanear
-                width: 150,
-                height: 150,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-        });
-    </script>
+    <!-- Link para o JS Externo -->
+    <script src="script.js"></script>
 </body>
 </html>

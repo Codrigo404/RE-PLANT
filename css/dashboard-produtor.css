@@ -1,0 +1,350 @@
+/* =========================================================
+   RE-PLANT PROTOCOL — CYBER ECO INTERFACE (MASTER COMPLETO)
+========================================================= */
+
+:root {
+    --neon-green: #39ff14;     /* Verde neon puro original do seu site */
+    --cyber-green: #53ff7a;
+    --dark-bg: #020402;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+
+    --soft-shadow: 0 0 40px rgba(57, 255, 20, 0.06);
+    --green-glow: 
+        0 0 15px rgba(57, 255, 20, 0.35),
+        0 0 30px rgba(57, 255, 20, 0.12);
+}
+
+/* =========================================================
+   RESET & GLOBAL BOX MODEL CONTROL
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important; /* Garante que padding nenhum vaze as caixas */
+}
+
+html, body {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, rgba(57, 255, 20, 0.04), transparent 35%),
+        radial-gradient(circle at bottom, rgba(57, 255, 20, 0.03), transparent 45%),
+        #010302;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+}
+
+/* NOISE OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.main-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   TYPOGRAPHY & TOP HEADERS (CORRIGIDO)
+========================================================= */
+.hud-title {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    color: var(--cyber-green);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(57, 255, 20, 0.25);
+}
+
+.protocol-description {
+    font-family: 'Rajdhani', sans-serif !important;
+    max-width: 850px;
+    color: #9a9a9a;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 45px;
+}
+
+/* =========================================================
+   BENTO CONTAINER & GRID FORM
+========================================================= */
+.bento-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+    .bento-container {
+        grid-template-columns: 1.8fr 1.2fr;
+    }
+}
+
+/* Estilo do Card Bento (Match Perfeito com sua Home) */
+.bento-box {
+    background-color: #030704 !important; /* Fundo escuro profundo Solarpunk */
+    border: 1px solid #08210d !important; /* Borda fina invisível verde escura */
+    border-radius: 16px !important;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(57, 255, 20, 0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-box h3 {
+    font-family: 'Orbitron', sans-serif !important;
+    color: #00ff41 !important;
+    font-size: 1.2rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.25);
+    border-bottom: 1px solid #08210d !important;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.bento-box label {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #00ff41 !important;
+    margin-top: 20px !important;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* INPUTS E SELECTS — SINTONIA TOTAL TERMINAL */
+.bento-box input[type="text"],
+.bento-box input[type="date"],
+.bento-box input[type="number"],
+.bento-box select {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 12px 16px !important;
+    margin: 6px 0 16px 0 !important;
+    background-color: #000000 !important; /* Preto puro */
+    border: 1px solid #08210d !important;
+    border-radius: 6px !important; /* Estilo chip linear */
+    color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 1px;
+    display: block;
+    transition: all 0.25s ease-in-out;
+}
+
+/* Glow Ativo no Input ao Digitar */
+.bento-box input:focus,
+.bento-box select:focus {
+    outline: none !important;
+    border-color: #00ff41 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3) !important;
+}
+
+/* FLEX BOX RE-ESTRUTURADO PARA AS COORDENADAS */
+.bento-box div[style*="display: flex"] {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+/* INTERFACE DO CHECKBOX ACCENT */
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 15px 0;
+}
+
+.toggle-container label {
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    color: #94a3b8 !important;
+}
+
+.toggle-container input[type="checkbox"] {
+    accent-color: #00ff41 !important;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* BOTÃO CAPTURAR GPS (HUD STYLE) */
+.btn-gps {
+    background-color: #000000 !important;
+    color: #00ff41 !important;
+    border: 1px solid #08210d !important;
+    border-radius: 6px !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px !important;
+    margin-bottom: 12px !important;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-gps:hover {
+    border-color: #00ff41 !important;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.3) !important;
+    background-color: rgba(0, 255, 65, 0.02) !important;
+}
+
+/* BOTÃO SUBMIT (MATCH DO SEU HOVER MODELO 2 DA HOME) */
+.bento-box button[type="submit"] {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #000000 !important;
+    color: #00ff41 !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.9rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #00ff41 !important; /* Contorno neon igual ao LOGIN */
+    border-radius: 4px !important; /* Cantos retos estilo chip */
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.4) !important;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+}
+
+.bento-box button[type="submit"]:hover {
+    background-color: #00ff41 !important; /* Preenche de verde no hover */
+    color: #000000 !important;           /* Texto fica preto */
+    box-shadow: 0 0 25px rgba(0, 255, 65, 0.8), 0 0 45px rgba(0, 255, 65, 0.6) !important;
+}
+
+/* =========================================================
+   PLAQUETA BIO-DIGITAL (PAINEL DA DIREITA)
+========================================================= */
+#qr-box { 
+    text-align: center; 
+    background: radial-gradient(circle at top right, #041408, #030704);
+}
+
+#qrcode-img { 
+    margin: 20px auto; 
+    background: white; 
+    padding: 16px; 
+    border-radius: 12px; 
+    display: inline-block; 
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.tag-info {
+    background: #000000 !important;
+    border: 1px solid #08210d !important;
+    border-radius: 8px !important;
+    padding: 22px !important;
+}
+
+.tag-info p {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1rem !important;
+    color: #94a3b8 !important;
+    margin: 10px 0 !important;
+    text-align: left;
+}
+
+.tag-info p span {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.tag-info p strong {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.8rem !important;
+    color: #00ff41 !important;
+    letter-spacing: 1px;
+    display: inline-block;
+    width: 110px;
+}
+
+#btn-imprimir {
+    margin-top: 15px; 
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 20px !important;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+}
+
+#btn-imprimir:hover {
+    border-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* =========================================================
+   📱 MEDIA QUERIES EXTENSIVAS (MOBILE CRASH FIXES)
+========================================================= */
+@media (max-width: 600px) {
+    /* Força os inputs de geolocalização a empilharem verticalmente no celular */
+    .bento-box div[style*="display: flex"] {
+        flex-direction: column !important;
+        gap: 0px !important;
+    }
+
+    /* Reduz padding excessivo para sobrar área útil interna */
+    .bento-box {
+        padding: 20px 16px !important;
+    }
+
+    /* Evita que o texto grande do botão GPS exploda o layout */
+    .btn-gps {
+        font-size: 0.75rem !important;
+        padding: 12px 8px !important;
+        white-space: normal !important;
+    }
+
+    /* Ajuste responsivo para fontes de cabeçalho global */
+    .hud-title {
+        font-size: 1.6rem !important;
+        text-align: center;
+        padding: 0 10px;
+    }
+    
+    .protocol-description {
+        font-size: 0.95rem !important;
+        text-align: center;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+}
+
+/* Mantém as animações do núcleo do site intactas */
+.hidden { display: none !important; }
